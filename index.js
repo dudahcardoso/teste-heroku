@@ -1,5 +1,9 @@
+require("dotenv").config();
 let message = "";
 const express = require("express"); //cria variável express, o require vai no node modules procura a pasta express e traz tudo que ele tem ali dentro
+
+//dontenv
+const port = process.env.PORT || 3000;
 
 //passo2
 const path = require("path"); // importar uma lib do próprio Express chamada path
@@ -45,6 +49,6 @@ app.post("/subscription", (req, res) => {
   res.redirect("/");
 });
 
-app.listen(3000, () =>
-  console.log("Servidor rodando em http://localhost:3000")
+app.listen(port, () =>
+  console.log(`Servidor rodando em http://localhost:{port}`)
 ); //ouvir a porta 3000, rodando nessa porta
